@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  api:
+    build: ./api
+    command: bash -c "rm -f tmp/pids/server.pid && rake db:mongoid:create_indexes && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ./api:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - api.env
+
+  front:
+    build: ./front
+    ports:
+      - 3001:3001
+    volumes:
+      - ./front/:/app
+
+  db:
+    image: postgres
+    volumes:
+      - "./db/data/:/var/lib/postgresql/data"
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
