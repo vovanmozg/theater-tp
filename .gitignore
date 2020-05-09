@@ -17,7 +17,7 @@
 # Ignore master key for decrypting credentials and more.
 /api/config/master.key
 
-!/api/tmp/pids/
+/api/tmp/pids/
 !/api/tmp/pids/.keep
 
 # Ignore uploaded files in development.
@@ -25,3 +25,4 @@
 !/api/storage/.keep
 
 # api.env
+# db.env
