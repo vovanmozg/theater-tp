@@ -1,0 +1,44 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - bin/**/*
+  DisplayCopNames: true
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 15
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 200
+
+Metrics/ModuleLength:
+  CountComments: false
+  Max: 200
+
+# Avoid complex methods.
+Metrics/CyclomaticComplexity:
+  Max: 6
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 25
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
+Metrics/BlockLength:
+  ExcludedMethods: ['let', 'context', 'define', 'describe', 'factory', 'shared_examples', 'shared_context']
