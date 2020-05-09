@@ -3,7 +3,7 @@ services:
 
   api:
     build: ./api
-    command: bash -c "rm -f tmp/pids/server.pid && rake db:mongoid:create_indexes && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && rake db:migrate && bundle exec rails s -p 3001 -b '0.0.0.0'"
     volumes:
       - ./api:/app
     ports:
@@ -21,11 +21,17 @@ services:
       - ./front/:/app
 
   db:
-    image: postgres
+    build: ./db
     volumes:
       - "./db/data/:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
+    env_file:
+      - db.env
 
   adminer:
     image: adminer
     ports:
-      - 8080:8080
+      - 8080:3002
+    depends_on:
+      - db
