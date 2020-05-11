@@ -9,13 +9,21 @@ gem 'puma', '~> 4.1'
 gem 'rack-cors'
 gem 'rails', '~> 6.0.3'
 # gem 'redis', '~> 4.0'
+gem 'rs_russian', '~> 0.15.0' # TODO: remove or setup
 
 group :production, :development do
   gem 'pg', '~> 1.2'
 end
 
 group :development, :test do
+  gem 'awesome_print', '~> 1.8'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~> 5.2'
+  gem 'ffaker', '~> 2.14'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.8'
   gem 'rspec-rails', '~> 4.0'
 end
 

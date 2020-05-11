@@ -11,4 +11,16 @@ RSpec.configure do |config|
 
   config.order = :random
   Kernel.srand config.seed
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before do
+    DatabaseCleaner.start if self.class.metadata[:db]
+  end
+
+  config.after do
+    DatabaseCleaner.clean if self.class.metadata[:db]
+  end
 end
