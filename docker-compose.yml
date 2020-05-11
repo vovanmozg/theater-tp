@@ -32,6 +32,6 @@ services:
   adminer:
     image: adminer
     ports:
-      - 8080:3002
+      - 3002:8080
     depends_on:
       - db
