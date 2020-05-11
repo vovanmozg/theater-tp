@@ -100,6 +100,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pagy (3.8.1)
     parallel (1.19.1)
     parser (2.7.1.2)
       ast (~> 2.4.0)
@@ -205,11 +206,11 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   database_cleaner (~> 1.8)
-  factory_bot (~> 5.2)
   factory_bot_rails (~> 5.2)
   ffaker (~> 2.14)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  pagy (~> 3.8)
   pg (~> 1.2)
   puma (~> 4.1)
   rack-cors

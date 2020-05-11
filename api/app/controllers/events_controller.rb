@@ -1,9 +1,15 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show update destroy]
 
+  wrap_parameters :event, include: %i[title, date_start, date_end]
+
   # GET /events
   def index
-    @events = Event.all
+    @pagy, @events = pagy(Event.all)
+    response.set_header('Content-Range', "events 1-#{Event.count}/#{Event.count}")
+    response.set_header('X-Total-Count', Event.count)
+    pagy_headers_merge(@pagy)
+    @events
   end
 
   # GET /events/1
@@ -43,6 +49,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:title, :date_start, :date_end)
+    params.permit(:title, :date_start, :date_end)
   end
 end
