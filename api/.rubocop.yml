@@ -4,16 +4,27 @@ require:
 AllCops:
   Exclude:
     - bin/**/*
+    - db/schema.rb
   DisplayCopNames: true
 
-Style/RescueStandardError:
-  EnforcedStyle: implicit
+Style/Documentation:
+  Exclude:
+    - app/controllers/*
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/NumericPredicate:
+  Enabled: false
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
 Metrics/AbcSize:
   Max: 15
+
+Metrics/BlockLength:
+  ExcludedMethods: ['let', 'context', 'define', 'describe', 'factory', 'shared_examples', 'shared_context']
 
 Metrics/BlockNesting:
   Max: 3
@@ -22,11 +33,7 @@ Metrics/ClassLength:
   CountComments: false
   Max: 200
 
-Metrics/ModuleLength:
-  CountComments: false
-  Max: 200
-
-# Avoid complex methods.
+# Avoid complex methods
 Metrics/CyclomaticComplexity:
   Max: 6
 
@@ -37,8 +44,15 @@ Metrics/MethodLength:
   CountComments: false
   Max: 25
 
+Metrics/ModuleLength:
+  CountComments: false
+  Max: 200
+
 Metrics/PerceivedComplexity:
   Max: 7
 
-Metrics/BlockLength:
-  ExcludedMethods: ['let', 'context', 'define', 'describe', 'factory', 'shared_examples', 'shared_context']
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/ImplicitSubject:
+  Enabled: false
