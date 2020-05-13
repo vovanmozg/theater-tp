@@ -1,37 +1,40 @@
-version: '3'
+version: "3"
 services:
-
   api:
     build: ./api
-    command: bash -c "rm -f tmp/pids/server.pid && rake db:migrate && bundle exec rails s -p 3001 -b '0.0.0.0'"
-    volumes:
-      - ./api:/app
-    ports:
-      - 3001:3001
     depends_on:
       - db
     env_file:
-      - env_api.env
+      - ./api/.env
+    ports:
+      - 3001:3000
+    # Uncomment for development purposes
+    # volumes:
+    #   - ./api:/app
 
   front:
     build: ./front
+    env_file:
+      - ./front/.env
     ports:
       - 3000:3000
-    volumes:
-      - ./front/:/app
-    env_file:
-      - env_front.env
+    # Uncomment for development purposes
+    # volumes:
+    #   - ./front/:/app
 
   db:
     build: ./db
-    volumes:
-      - "./db/data/:/var/lib/postgresql/data"
     env_file:
-      - env_db.env
+      - ./db/.env
+    # Uncomment for dev purposes and using dockerized postgresql
+    # ports:
+    #   - 5432:5432
+    # volumes:
+    #  - "./db/data/:/var/lib/postgresql/data"
 
   adminer:
+    depends_on:
+      - db
     image: adminer
     ports:
       - 3002:8080
-    depends_on:
-      - db

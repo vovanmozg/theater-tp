@@ -7,8 +7,9 @@ import {
   Pagination,
   TextField,
 } from 'react-admin';
+import { ITEMS_PER_PAGE } from '../../../config';
 
-const EventPagination = props => <Pagination rowsPerPageOptions={[10]} {...props} />;
+const EventPagination = props => <Pagination rowsPerPageOptions={[ITEMS_PER_PAGE]} {...props} />;
 
 const EventList = (props) => (
   <List {...props} pagination={<EventPagination />}>

@@ -3,5 +3,13 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+return if Event.count > 0
+Event.create(
+  [
+    { title: 'Золотой ключик или приключения Буратино', date_start: Date.today + 1, date_end: Date.today + 2 },
+    { title: 'Синдром счастья, или Ложь по контракту', date_start: Date.today + 3, date_end: Date.today + 3 },
+    { title: 'Кафка', date_start: Date.today + 4, date_end: Date.today + 5 }
+  ]
+)
+

@@ -23,9 +23,6 @@ Style/RescueStandardError:
 Metrics/AbcSize:
   Max: 15
 
-Metrics/BlockLength:
-  ExcludedMethods: ['let', 'context', 'define', 'describe', 'factory', 'shared_examples', 'shared_context']
-
 Metrics/BlockNesting:
   Max: 3
 
@@ -38,7 +35,7 @@ Metrics/CyclomaticComplexity:
   Max: 6
 
 Metrics/LineLength:
-  Max: 120
+  Max: 100
 
 Metrics/MethodLength:
   CountComments: false

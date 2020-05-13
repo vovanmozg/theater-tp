@@ -1,4 +1,3 @@
-CREATE USER rails;
 CREATE DATABASE theater_prod;
 CREATE DATABASE theater_dev;
 CREATE DATABASE theater_test;

@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "prop-types": "^15.7.2",
     "query-string": "^6.12.1",
     "ra-core": "^3.5.1",
     "react": "^16.13.1",
@@ -16,7 +16,9 @@
     "react-scripts": "^3.4.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start-prod": "bash ./bin/start-production.sh",
+    "start-dev": "bash ./bin/start-development.sh",
+    "lint": "eslint --ext .jsx --ext .js ./src"
   },
   "author": "",
   "license": "ISC",
@@ -31,5 +33,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "useTabs": false,
+    "bracketSpacing": true,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true
   }
 }
