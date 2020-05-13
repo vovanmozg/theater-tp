@@ -1,9 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const EventTitle = ({ record }) => {
-  return <span>
-    Event {record ? `'${record.title}'` : ''}
-  </span>;
+const EventTitle = ({ record }) => (
+  <span>
+    Event
+    {record ? `'${record.title}'` : ''}
+  </span>
+);
+
+EventTitle.propTypes = {
+  record: PropTypes.shape({ title: PropTypes.string.isRequired }).isRequired,
 };
 
 export default EventTitle;

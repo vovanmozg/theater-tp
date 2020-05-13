@@ -2,10 +2,11 @@
 import { HttpError } from 'react-admin';
 
 const httpClient = (url, options = {}) => {
-  const requestHeaders = options.headers || new Headers({
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  });
+  const requestHeaders = options.headers
+    || new Headers({
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    });
 
   return fetch(url, { ...options, headers: requestHeaders })
     .then((response) => response.text().then((text) => ({
@@ -29,10 +30,15 @@ const httpClient = (url, options = {}) => {
           .map((objectKey) => `${objectKey}: ${json[objectKey]}`)
           .join('; ');
 
-        return Promise.reject(new HttpError(errorMessage || statusText, status));
+        return Promise.reject(
+          new HttpError(errorMessage || statusText, status),
+        );
       }
       return {
-        status, headers, body, json,
+        status,
+        headers,
+        body,
+        json,
       };
     });
 };

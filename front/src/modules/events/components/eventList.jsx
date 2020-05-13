@@ -9,12 +9,14 @@ import {
 } from 'react-admin';
 import { ITEMS_PER_PAGE } from '../../../config';
 
-const EventPagination = props => <Pagination rowsPerPageOptions={[ITEMS_PER_PAGE]} {...props} />;
+const EventPagination = (props) => (
+  <Pagination rowsPerPageOptions={[ITEMS_PER_PAGE]} {...props} />
+);
 
 const EventList = (props) => (
   <List {...props} pagination={<EventPagination />}>
     <Datagrid>
-      <TextField source='id' sortable={false}/>
+      <TextField source='id' sortable={false} />
       <TextField source='title' sortable={false} />
       <DateField source='date_start' sortable={false} />
       <DateField source='date_end' sortable={false} />

@@ -13,7 +13,13 @@ import { API_URL } from '../../../config';
 
 const App = () => (
   <Admin dataProvider={simpleRestProvider(API_URL, httpClient)}>
-    <Resource name='events' list={ EventList } edit={ EventEdit } create={ EventCreate } icon={ EventIcon }/>
+    <Resource
+      name='events'
+      list={EventList}
+      edit={EventEdit}
+      create={EventCreate}
+      icon={EventIcon}
+    />
   </Admin>
 );
 

@@ -6,7 +6,6 @@ import {
   TextInput,
 } from 'react-admin';
 
-
 const EventCreate = (props) => (
   <Create title='Create a Event' {...props}>
     <SimpleForm>
