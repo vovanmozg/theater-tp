@@ -1,2 +1,8 @@
 #!/bin/bash
-npm start -- --port 3000
+if [ "$APP_ENV" == "production" ]; then
+    serve -s build -l $PORT
+fi
+
+if [ "$APP_ENV" == "development" ]; then
+    ./node_modules/.bin/react-scripts start
+fi

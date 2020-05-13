@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     env_file:
-      - api.env
+      - env_api.env
 
   front:
     build: ./front
@@ -19,13 +19,15 @@ services:
       - 3000:3000
     volumes:
       - ./front/:/app
+    env_file:
+      - env_front.env
 
   db:
     build: ./db
     volumes:
       - "./db/data/:/var/lib/postgresql/data"
     env_file:
-      - db.env
+      - env_db.env
 
   adminer:
     image: adminer
