@@ -22,8 +22,17 @@ CRUD operations
 .
 
 ## TODO
-- 
+### api
+- configure RuboCop rules (see output of `rubocop`)
+- cleanup config files
+- english translations in models
+### front
+- move errors to translate
+- link backend error with fields
+- cleanup code
 
+Примечания
+- Оксана Григорьевна говорит по русски, поэтому сообщения об ошибках выводим на русском языке.
 
 
 

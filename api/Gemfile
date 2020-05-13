@@ -9,8 +9,6 @@ gem 'pagy', '~> 3.8'
 gem 'puma', '~> 4.1'
 gem 'rack-cors'
 gem 'rails', '~> 6.0.3'
-# gem 'redis', '~> 4.0'
-gem 'rs_russian', '~> 0.15.0' # TODO: remove or setup
 
 group :production, :development do
   gem 'pg', '~> 1.2'
@@ -35,4 +33,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
