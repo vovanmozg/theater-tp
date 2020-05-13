@@ -55,19 +55,19 @@ RSpec.describe '/events', type: :request, slow: true, db: true do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Event' do
-        data = { params: { event: valid_attributes }, headers: valid_headers, as: :json }
+        data = { params: valid_attributes, headers: valid_headers, as: :json }
         expect { post events_url, data }.to change(Event, :count).by(1)
       end
 
       it 'renders a JSON response with the created status' do
         post events_url,
-             params: { event: valid_attributes }, headers: valid_headers, as: :json
+             params: valid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
       end
 
       it 'renders a response with JSON type' do
         post events_url,
-             params: { event: valid_attributes }, headers: valid_headers, as: :json
+             params: valid_attributes, headers: valid_headers, as: :json
         expect(response.content_type).to match(a_string_including('application/json'))
       end
     end
@@ -76,19 +76,19 @@ RSpec.describe '/events', type: :request, slow: true, db: true do
       it 'does not create a new Event' do
         expect do
           post events_url,
-               params: { event: invalid_attributes }, as: :json
+               params: invalid_attributes, as: :json
         end.to change(Event, :count).by(0)
       end
 
       it 'renders a JSON response with :unprocessable_entity status' do
         post events_url,
-             params: { event: invalid_attributes }, headers: valid_headers, as: :json
+             params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
       end
 
       it 'renders a response with JSON type' do
         post events_url,
-             params: { event: invalid_attributes }, headers: valid_headers, as: :json
+             params: invalid_attributes, headers: valid_headers, as: :json
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
@@ -104,7 +104,7 @@ RSpec.describe '/events', type: :request, slow: true, db: true do
         event = Event.create! valid_attributes
 
         patch event_url(event),
-              params: { event: update_attributes }, headers: valid_headers, as: :json
+              params: update_attributes, headers: valid_headers, as: :json
         event.reload
         expect(event.title).to eq(update_attributes[:title])
       end
@@ -112,14 +112,14 @@ RSpec.describe '/events', type: :request, slow: true, db: true do
       it 'returns OK status' do
         event = Event.create! valid_attributes
         patch event_url(event),
-              params: { event: valid_attributes }, headers: valid_headers, as: :json
+              params: valid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
       end
 
       it 'renders a response with JSON type' do
         event = Event.create! valid_attributes
         patch event_url(event),
-              params: { event: invalid_attributes }, headers: valid_headers, as: :json
+              params: invalid_attributes, headers: valid_headers, as: :json
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
@@ -128,14 +128,14 @@ RSpec.describe '/events', type: :request, slow: true, db: true do
       it 'renders a response with JSON type' do
         event = Event.create! valid_attributes
         patch event_url(event),
-              params: { event: invalid_attributes }, headers: valid_headers, as: :json
+              params: invalid_attributes, headers: valid_headers, as: :json
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
       it 'renders a JSON response with errors for the event' do
         event = Event.create! valid_attributes
         patch event_url(event),
-              params: { event: invalid_attributes }, headers: valid_headers, as: :json
+              params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end

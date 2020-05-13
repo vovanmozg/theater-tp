@@ -4,13 +4,15 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-  },
-  "devDependencies": {
-    "ra-data-json-server": "^3.5.1",
-    "ra-data-simple-rest": "^3.3.2",
+    "dotenv": "^8.2.0",
+    "query-string": "^6.12.1",
+    "ra-core": "^3.5.1",
     "react": "^16.13.1",
     "react-admin": "^3.5.0",
-    "react-dom": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.1.0",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
