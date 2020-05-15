@@ -1,4 +1,4 @@
-# REST API for the theater
+# Rails REST API + React Admin example
 Create, view, edit and delete events for the theater.
 
 ## Install and run
